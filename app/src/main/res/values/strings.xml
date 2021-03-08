@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Oracle</string>
+    <string name="app_logo">App Logo</string>
+    <string name="app_version">App Version: %1$s</string>
+    <string name="menu">Main Menu</string>
+    <string name="get_prediction">Get Prediction</string>
+    <string name="prediction">Prediction</string>
+    <string name="options">Options</string>
+    <string name="quit">Quit</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date">Date</string>
+    <string name="variant">Variant</string>
+    <string name="done">Done</string>
+    <string name="try_again">Try Again</string>
+    <string name="cancel">Cancel</string>
+    <string name="empty_fields_error">Some fields are
+empty</string>
+    <string name="error">Error! Please check your internet
+connection and try again</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="select_date">Select date</string>
+    <string name="enter_your_question">Enter your question</string>
+    <string name="ask_a_question">Ask a Question</string>
+    <string name="yes">Так</string>
+    <string name="likely">Цілком вірогідно</string>
+    <string name="may_be">Можливо</string>
+    <string name="dont_kown">Не знаю</string>
+    <string name="unlikely">Малоймовірно</string>
+    <string name="no">Ні</string>
+</resources>

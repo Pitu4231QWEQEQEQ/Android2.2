@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menuItemSpace">12dp</dimen>
+    <dimen name="menuItemHeight">42dp</dimen>
+    <dimen name="logoMargin">12dp</dimen>
+    <dimen name="logoSize">54dp</dimen>
+</resources>
