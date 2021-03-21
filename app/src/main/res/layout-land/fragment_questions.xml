@@ -29,6 +29,15 @@
         app:layout_constraintBottom_toTopOf="@id/questionButton"
         android:hint="@string/enter_your_question"
         />
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/questionEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        />
     <Button
         android:id="@+id/questionButton"
         android:layout_width="wrap_content"

@@ -51,7 +51,6 @@ public class OptionsFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(
                 R.layout.fragment_options,
                 container, false);
@@ -69,36 +68,40 @@ public class OptionsFragment extends BaseFragment {
                 findViewById(R.id.dateTextView);
         genderRadioGroup = view.
                 findViewById(R.id.genderRadioGroup);
+
         if (savedInstanceState != null) {
             String birthday = savedInstanceState
                     .getString(KEY_BIRTHDAY);
             isDialogShow = savedInstanceState.getBoolean(KEY_SHOW_DIALOG);
-            Bundle bundle = savedInstanceState.getBundle(KEY_DATE);
-            if(bundle != null) {
-                bithdayTextView.setText(birthday);
-                datePickerDialog = new DatePickerDialog(getContext(), d,
-                        date.get(Calendar.YEAR),
-                        date.get(Calendar.MONTH),
-                        date.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.onRestoreInstanceState(bundle);
-                if(isDialogShow)
+            if(isDialogShow) {
+                Bundle bundle = savedInstanceState.getBundle(KEY_DATE);
+                if (bundle != null) {
+                    bithdayTextView.setText(birthday);
+                    datePickerDialog = new DatePickerDialog(getContext(), d,
+                            date.get(Calendar.YEAR),
+                            date.get(Calendar.MONTH),
+                            date.get(Calendar.DAY_OF_MONTH));
+                    datePickerDialog.onRestoreInstanceState(bundle);
                     datePickerDialog.show();
-            }
-        }
-        setupButtons(view);
-            Player player = getPlayerArg();
-            if (player != null) {
-                firstNameEditText.setText(player.getFirstName());
-                lastNameEditText.setText(player.getLastName());
-                bithdayTextView.setText(player.getBirthday());
-                RadioButton maleRadioButton = view.findViewById(R.id.radio_male);
-                RadioButton femaleRadioButton = view.findViewById(R.id.radio_female);
-                if(player.getGender().equals("Male")){
-                    maleRadioButton.setChecked(true);
-                } else {
-                    femaleRadioButton.setChecked(true);
                 }
             }
+        }
+
+        setupButtons(view);
+
+        Player player = getPlayerArg();
+        if (player != null) {
+            firstNameEditText.setText(player.getFirstName());
+            lastNameEditText.setText(player.getLastName());
+            bithdayTextView.setText(player.getBirthday());
+            RadioButton maleRadioButton = view.findViewById(R.id.radio_male);
+            RadioButton femaleRadioButton = view.findViewById(R.id.radio_female);
+            if(player.getGender().equals("Male")){
+                maleRadioButton.setChecked(true);
+            } else {
+                femaleRadioButton.setChecked(true);
+            }
+        }
     }
     private void setupButtons(View view) {
         view.findViewById(R.id.cancelButton)
@@ -163,18 +166,13 @@ public class OptionsFragment extends BaseFragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(KEY_BIRTHDAY, bithdayTextView.getText().toString());
-        outState.putBoolean(KEY_SHOW_DIALOG, isDialogShow);
+        if(isDialogShow != null)
+            outState.putBoolean(KEY_SHOW_DIALOG, isDialogShow);
         if (datePickerDialog != null) {
             outState.putBundle(KEY_DATE, datePickerDialog.onSaveInstanceState());
         }
     }
     private Player getPlayerArg() {
         return getArguments().getParcelable(ARG_PLAYER);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
     }
 }

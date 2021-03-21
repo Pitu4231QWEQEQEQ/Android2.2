@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import stu.cn.ua.androidlab2.R;
+import stu.cn.ua.androidlab2.fragments.QuestionsFragment;
 
 public class QuestionsService extends Service {
 
@@ -35,7 +36,7 @@ public class QuestionsService extends Service {
         return binder ;
     }
 
-    public String getAnswer(String question) {
+    public String getAnswer(String question, QuestionsFragment questionsFragment) {
         int variant = question.hashCode() % 6;
         variant = Math.abs(variant);
         return answers.get(variant);
